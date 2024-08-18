@@ -1,4 +1,4 @@
-@extends('php-laravel.installer.layouts.master')
+@extends('vendor.installer.layouts.master')
 
 @section('template_title')
     {{ trans('default_messages.environment.wizard.templateTitle') }}
@@ -6,7 +6,7 @@
 
 @section('title')
     <i class="fa fa-magic fa-fw" aria-hidden="true"></i>
-    {!! __('Setup Environment') !!}
+    {{ __('Setup Environment') }}
 @endsection
 
 @section('container')

@@ -1,4 +1,4 @@
-@extends('php-laravel.installer.layouts.master')
+@extends('vendor.installer.layouts.master')
 
 @section('template_title')
     {{ trans('default_messages.environment.menu.templateTitle') }}
@@ -6,13 +6,13 @@
 
 @section('title')
     <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
-    {!! trans('default_messages.environment.menu.title') !!}
+    {{ trans('default_messages.environment.menu.title') }}
 @endsection
 
 @section('container')
 
     <p class="text-center">
-        {!! trans('default_messages.environment.menu.desc') !!}
+        {{ trans('default_messages.environment.menu.desc') }}
     </p>
     <div class="buttons">
         <a href="{{ route('LaravelInstaller::environmentWizard') }}" class="button button-wizard">

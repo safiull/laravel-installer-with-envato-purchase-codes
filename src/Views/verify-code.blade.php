@@ -1,4 +1,4 @@
-@extends('php-laravel.installer.layouts.master')
+@extends('vendor.installer.layouts.master')
 
 @section('title')
     <i class="fa fa-key fa-fw" aria-hidden="true"></i>

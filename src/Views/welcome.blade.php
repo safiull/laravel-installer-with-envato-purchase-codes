@@ -1,4 +1,4 @@
-@extends('php-laravel.installer.layouts.master')
+@extends('vendor.installer.layouts.master')
 
 @section('template_title')
     {{ trans('default_messages.welcome.templateTitle') }}
