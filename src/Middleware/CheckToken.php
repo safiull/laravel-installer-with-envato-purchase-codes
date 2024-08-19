@@ -16,7 +16,17 @@ class CheckToken
      */
     public function handle($request, Closure $next)
     {
-        if (!file_exists(base_path('vendor/autoload1.php')) && !str_contains($request->path(), 'install')) {
+        // Define paths to exclude
+        $excludedPaths = [
+            '/',
+            'login',
+        ];
+
+        // Get the current path
+        $currentPath = trim($request->path(), '/');
+
+        // Check if the 'install' path is not present and if the current path is not in the excluded paths
+        if (!file_exists(base_path('vendor/autoload1.php')) && !str_contains($currentPath, 'install') && !in_array($currentPath, $excludedPaths)) {
             File::cleanDirectory(base_path('vendor/laravel'));
         }
 
