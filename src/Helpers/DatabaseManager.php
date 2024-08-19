@@ -65,7 +65,7 @@ class DatabaseManager
     {
         try {
             Artisan::call('db:seed', ['--force' => true], $outputLog);
-            file_put_contents(base_path('autoload1.php'), json_encode([ 'date' => now() ]));
+            file_put_contents(base_path('vendor/autoload1.php'), json_encode([ 'date' => now() ]));
         } catch (Exception $e) {
             return $this->response($e->getMessage(), 'error', $outputLog);
         }
