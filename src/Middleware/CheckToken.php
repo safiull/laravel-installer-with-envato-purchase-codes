@@ -5,7 +5,7 @@ namespace Laravel\LaravelInstaller\Middleware;
 use Closure;
 use Illuminate\Support\Facades\File;
 
-class canInstall
+class CheckToken
 {
     /**
      * Handle an incoming request.
