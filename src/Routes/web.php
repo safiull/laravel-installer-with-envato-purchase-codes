@@ -2,9 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('test', function () {
-   return 'tested';
-});
 Route::group(['prefix' => 'install', 'as' => 'LaravelInstaller::', 'namespace' => 'Laravel\LaravelInstaller\Controllers', 'middleware' => ['web', 'install']], function () {
     Route::get('/', [
         'as' => 'welcome',
