@@ -56,7 +56,7 @@ class UpdateController extends Controller
         $data['numberOfUpdatesPending'] = count($migrations) - count($dbMigrations);
         $data['purchase_code'] = '';
         $data['version_list'] = [];
-        $file_path = storage_path('.envapplicationKeyforverifywhichcomesfromenv');
+        $file_path = storage_path('.license');
 
         if (file_exists($file_path)) {
             $file_contents = file_get_contents($file_path);

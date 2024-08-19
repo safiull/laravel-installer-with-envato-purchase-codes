@@ -68,7 +68,7 @@ class PermissionsController extends Controller
                 return redirect()->back()->with(['message' => $check['message']]);
             } else {
                 if($request->_tokens && $request->_tokens == 'purchase_code') {
-                    file_put_contents(storage_path('.envapplicationKeyforverifywhichcomesfromenv'), json_encode([ 'license' => $request->purchase_code ]));
+                    file_put_contents(storage_path('.license'), json_encode([ 'license' => $request->purchase_code ]));
                     return redirect('/')->with('message',__('Code verified successfully'));
                 } else {
                     return redirect()->route('LaravelInstaller::environment')->with('message', $check['message']);

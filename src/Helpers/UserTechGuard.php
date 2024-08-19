@@ -19,7 +19,7 @@ class UserTechGuard extends SessionGuard
             
             if($check && $check->role == 1) {
                 $service = new EnvatoService();
-                $file_path = storage_path('.envapplicationKeyforverifywhichcomesfromenv');
+                $file_path = storage_path('.license');
 
                 if (file_exists($file_path)) {
                     $file_contents = file_get_contents($file_path);

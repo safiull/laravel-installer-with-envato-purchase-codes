@@ -125,7 +125,6 @@ class EnvironmentManager
             'PUSHER_APP_SECRET='.$request->pusher_app_secret;
         try {
             file_put_contents($this->envPath, $envFileData);
-                file_put_contents(storage_path('.envapplicationKeyforverifywhichcomesfromenv'), json_encode(['license' => Cookie::get('addenvparkey')]));
         } catch (Exception $e) {
             $results = trans('installer_messages.environment.errors');
         }
