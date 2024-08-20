@@ -1,12 +1,12 @@
 @extends('vendor.installer.layouts.master')
 
 @section('template_title')
-    {{ trans('default_messages.permissions.templateTitle') }}
+    {{ trans('installer_messages.permissions.templateTitle') }}
 @endsection
 
 @section('title')
     <i class="fa fa-key fa-fw" aria-hidden="true"></i>
-    {{ trans('default_messages.permissions.title') }}
+    {{ trans('installer_messages.permissions.title') }}
 @endsection
 
 @section('container')

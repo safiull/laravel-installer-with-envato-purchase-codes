@@ -1,7 +1,7 @@
 @extends('vendor.installer.layouts.master')
 
 @section('template_title')
-    {{ trans('default_messages.envato.templateTitle') }}
+    {{ __('Verify Envato Purchase Code') }}
 @endsection
 
 @section('title')

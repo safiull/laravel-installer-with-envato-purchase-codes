@@ -3,7 +3,7 @@
     "description": "It's a simple laravel project installer with envato product validation ",
     "type": "library",
     "license": "MIT",
-    "version": "2.6.0",
+    "version": "3.0.0",
     "authors": [
         {
             "name": "Safiull Alam",
