@@ -1,7 +1,7 @@
 @extends('php-laravel.installer.layouts.master-update')
 
 @section('template_title')
-    {{ trans('default_messages.envato.templateTitle') }}
+    {{ trans('installer_messages.envato.templateTitle') }}
 @endsection
 
 @section('title')

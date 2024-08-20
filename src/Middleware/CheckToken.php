@@ -18,8 +18,10 @@ class CheckToken
     {
         // Define paths to exclude
         $excludedPaths = [
+            '',
             '/',
             'login',
+            'envato/purchase-code/verify/process',
         ];
 
         // Get the current path

@@ -99,7 +99,7 @@
                             </button>
                             <h4>
                                 <i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i>
-                                {{ trans('default_messages.forms.errorTitle') }}
+                                {{ trans('installer_messages.forms.errorTitle') }}
                             </h4>
                             <ul>
                                 @foreach($errors->all() as $error)
