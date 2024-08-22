@@ -141,13 +141,13 @@ return [
     | Boolean value
     |
     */
-    
+
     'checkPurchaseCode' => true,
     'demoPurchaseCodeAllow' => true,
     'demoPurchaseCode' => '',
     'updaterEnabled' => 'true',
-    'headerkeys' => 'XPIkKM5C6JgyAWCfNfjZifz3Gj1GRM9toJ87zpsF',
+    'headerkeys' => 'Bearer mISg6zCJbdf0cdXoDQJM2WuxrBuw9TL1',
 
-    'api_url' => 'https://itech.tradexpro.org',
+    'api_url' => 'https://api.envato.com',
     'download_path' => '/../../../../..'
 ];

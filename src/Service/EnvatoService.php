@@ -7,19 +7,18 @@ class EnvatoService {
 
     public function __construct()
     {
-        $this->apiUrl = config('installer.api_url') ? config('installer.api_url') : 'https://itech.tradexpro.org';
-        $this->headerKey = config('installer.headerkeys') ? config('installer.headerkeys') : 'XPIkKM5C6JgyAWCfNfjZifz3Gj1GRM9toJ87zpsF';
+        $this->apiUrl = config('installer.api_url') ? config('installer.api_url') : 'https://api.envato.com';
+        $this->headerKey = config('installer.headerkeys') ? config('installer.headerkeys') : 'Bearer mISg6zCJbdf0cdXoDQJM2WuxrBuw9TL1';
     }
 
     public function apiCall($endPoint, $requestData = null, $method = 'GET') {
         try {
             $header = array();
-            $header[] = 'Content-type: application/json; charset=utf-8';
             $header[] = 'Accept: application/json';
-            $header[] = 'userapisecret:' . $this->headerKey;
-    
+            $header[] = 'Authorization:' . $this->headerKey;
+
             $api_url = $this->apiUrl . $endPoint;
-    
+
             // If the method is POST and requestData is provided, prepare the POST request
             if (strtoupper($method) === 'POST' && !empty($requestData)) {
                 $postData = json_encode($requestData);
@@ -34,11 +33,11 @@ class EnvatoService {
                 }
                 $ch = curl_init($api_url);
             }
-    
+
             curl_setopt($ch, CURLOPT_URL, $api_url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-    
+
             $responseData = curl_exec($ch);
             // return ['success' => true, 'message' => __('Api request failed'), 'data' => []];
             if ($responseData !== false) {
@@ -52,12 +51,12 @@ class EnvatoService {
             } else {
                 $response = ['success' => false, 'message' => __('Api request failed'), 'data' => []];
             }
-    
+
             curl_close($ch);
         } catch (\Exception $e) {
             $response = ['success' => false, 'message' => $e->getMessage(), 'data' => []];
         }
-    
+
         return $response;
     }
 
@@ -65,7 +64,7 @@ class EnvatoService {
     // check envato purchase code
     public function checkEnvatoPurchaseCode($code) {
         if(!empty($code)) {
-            $response = $this->apiCall('/api/verify-purchase-code?code='.$code,[],'GET');
+            $response = $this->apiCall('/v3/market/author/sale?code='.$code,[],'GET');
             return $response;
         } else {
           return ['success' => false, 'message' => __('Code is missing')];
