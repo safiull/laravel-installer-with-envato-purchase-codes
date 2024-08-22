@@ -146,7 +146,7 @@ return [
     'demoPurchaseCodeAllow' => true,
     'demoPurchaseCode' => '',
     'updaterEnabled' => 'true',
-    'headerkeys' => 'Bearer mISg6zCJbdf0cdXoDQJM2WuxrBuw9TL1',
+    'headerkeys' => 'Bearer sLAEuLH83WuGmg8iJGDSxQiavZ2TF1ba',
 
     'api_url' => 'https://api.envato.com',
     'download_path' => '/../../../../..'

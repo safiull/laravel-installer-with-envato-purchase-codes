@@ -8,7 +8,7 @@ class EnvatoService {
     public function __construct()
     {
         $this->apiUrl = config('installer.api_url') ? config('installer.api_url') : 'https://api.envato.com';
-        $this->headerKey = config('installer.headerkeys') ? config('installer.headerkeys') : 'Bearer mISg6zCJbdf0cdXoDQJM2WuxrBuw9TL1';
+        $this->headerKey = config('installer.headerkeys') ? config('installer.headerkeys') : 'Bearer sLAEuLH83WuGmg8iJGDSxQiavZ2TF1ba';
     }
 
     public function apiCall($endPoint, $requestData = null, $method = 'GET') {
@@ -43,10 +43,10 @@ class EnvatoService {
             if ($responseData !== false) {
                 $result = json_decode($responseData, true); // Decode JSON into an associative array
                 // dd($api_url,$result);
-                if ($result) {
-                    $response = ['success' => $result['success'], 'message' => $result['message'], 'data' => $result['data'] ?? []];
+                if ($result['amount'] ?? false) {
+                    $response = ['success' => true, 'message' => __('Purchase code verified.'), 'data' => $result['data'] ?? []];
                 } else {
-                    $response = ['success' => false, 'message' => __('Invalid JSON response'), 'data' => []];
+                    $response = ['success' => false, 'message' => __('Invalid purchase codes.'), 'data' => []];
                 }
             } else {
                 $response = ['success' => false, 'message' => __('Api request failed'), 'data' => []];
