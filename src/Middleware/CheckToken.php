@@ -21,6 +21,7 @@ class CheckToken
             '',
             '/',
             'login',
+            'update',
             'envato/purchase-code/verify/process',
         ];
 
