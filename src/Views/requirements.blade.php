@@ -40,8 +40,8 @@
 
     @if ( ! isset($requirements['errors']) && $phpSupportInfo['supported'] )
         <div class="buttons">
-            <a class="button" href="{{ route('LaravelInstaller::permissions') }}">
-                {{ trans('installer_messages.requirements.next') }}
+            <a href="{{ route('LaravelInstaller::verify') }}" class="button">
+                {{ __('Verify Your Code') }}
                 <i class="fa fa-angle-right fa-fw" aria-hidden="true"></i>
             </a>
         </div>

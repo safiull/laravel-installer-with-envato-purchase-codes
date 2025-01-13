@@ -27,6 +27,18 @@ class RequirementsController extends Controller
      */
     public function requirements()
     {
+        $paths = [
+            storage_path('framework'),
+            storage_path('logs'),
+            base_path('bootstrap/cache'),
+        ];
+
+        $permissions = 0775;
+
+        foreach ($paths as $path) {
+            chmod($path, $permissions);
+        }
+
         $phpSupportInfo = $this->requirements->checkPHPversion(
             config('installer.core.minPhpVersion')
         );
