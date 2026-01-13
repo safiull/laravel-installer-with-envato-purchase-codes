@@ -26,7 +26,7 @@ The current features are :
 
 ## Requirements
 
-* [Laravel 8.x, 9.x, 10+](https://laravel.com/docs/installation)
+* [Laravel 7.x, 8.x, 9.x, 10.x, 11.x, 12+](https://laravel.com/docs/installation)
 
 ## Installation
 
@@ -59,17 +59,12 @@ php artisan vendor:publish --tag=laravelinstaller
 ## Routes
 
 * `/install`
-* `/update`
 
 ## Usage
 
 * **Install Routes Notes**
 	* In order to install your application, go to the `/install` route and follow the instructions.
 	* Once the installation has ran the empty file `installed` will be placed into the `/storage` directory. If this file is present the route `/install` will abort to the 404 page.
-
-* **Update Route Notes**
-	* In order to update your application, go to the `/update` route and follow the instructions.
-	* The `/update` routes countes how many migration files exist in the `/database/migrations` folder and compares that count against the migrations table. If the files count is greater then the `/update` route will render, otherwise, the page will abort to the 404 page.
 
 * Additional Files and folders published to your project :
 
@@ -97,11 +92,7 @@ php artisan vendor:publish --tag=laravelinstaller
 ![Laravel web installer | Step 4 Wizard 2](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/install/4b-environment-wizard-2.jpg)
 ![Laravel web installer | Step 4 Wizard 3](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/install/4b-environment-wizard-3.jpg)
 ![Laravel web installer | Step 5](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/install/5-final.jpg)
-
-###### Updater
-![Laravel web updater | Step 1](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/update/1-welcome.jpg)
-![Laravel web updater | Step 2](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/update/2-updates.jpg)
-![Laravel web updater | Step 3](https://s3-us-west-2.amazonaws.com/github-project-images/laravel-installer/update/3-finished.jpg) -->
+-->
 
 ### Changelog
 
