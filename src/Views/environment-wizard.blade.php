@@ -13,7 +13,7 @@
     <div class="tabs tabs-full">
 
         <input id="tab1" type="radio" name="tabs" class="tab-input" checked />
-        <label for="tab1" class="tab-label">
+        <label for="tab1" class="tab-label d-none">
             <i class="fa fa-cog fa-2x fa-fw" aria-hidden="true"></i>
             <br />
             {{ trans('installer_messages.environment.wizard.tabs.environment') }}
@@ -36,7 +36,7 @@
                     @endif
                 </div>
 
-                <div class="form-group {{ $errors->has('environment') ? ' has-error ' : '' }}">
+                <div class="form-group d-none {{ $errors->has('environment') ? ' has-error ' : '' }}">
                     <label for="environment">
                         {{ trans('installer_messages.environment.wizard.form.app_environment_label') }}
                     </label>
@@ -58,7 +58,7 @@
                     @endif
                 </div>
 
-                <div class="form-group {{ $errors->has('app_debug') ? ' has-error ' : '' }}">
+                <div class="form-group d-none {{ $errors->has('app_debug') ? ' has-error ' : '' }}">
                     <label for="app_debug">
                         {{ trans('installer_messages.environment.wizard.form.app_debug_label') }}
                     </label>
@@ -78,7 +78,7 @@
                     @endif
                 </div>
 
-                <div class="form-group {{ $errors->has('app_log_level') ? ' has-error ' : '' }}">
+                <div class="form-group d-none {{ $errors->has('app_log_level') ? ' has-error ' : '' }}">
                     <label for="app_log_level">
                         {{ trans('installer_messages.environment.wizard.form.app_log_level_label') }}
                     </label>

@@ -3847,7 +3847,7 @@ svg:not(:root) {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 @media (max-width: 1600px) {
