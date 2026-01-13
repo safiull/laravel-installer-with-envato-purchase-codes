@@ -1,7 +1,9 @@
 <?php
+
 namespace Laravel\LaravelInstaller\Service;
 
-class EnvatoService {
+class EnvatoService
+{
     private $apiUrl = '';
     private $headerKey = '';
 
@@ -11,7 +13,8 @@ class EnvatoService {
         $this->headerKey = config('installer.headerkeys') ? config('installer.headerkeys') : 'Bearer sLAEuLH83WuGmg8iJGDSxQiavZ2TF1ba';
     }
 
-    public function apiCall($endPoint, $requestData = null, $method = 'GET') {
+    public function apiCall($endPoint, $requestData = null, $method = 'GET')
+    {
         try {
             $header = array();
             $header[] = 'Accept: application/json';
@@ -42,8 +45,10 @@ class EnvatoService {
             // return ['success' => true, 'message' => __('Api request failed'), 'data' => []];
             if ($responseData !== false) {
                 $result = json_decode($responseData, true); // Decode JSON into an associative array
-                // dd($api_url,$result);
-                if ($result['amount'] ?? false) {
+                $item_id = $result['item']['id'] ?? 0;
+                $expectedItemId = function_exists('expectedItemId') ? expectedItemId() : null;
+
+                if ($expectedItemId == $item_id) {
                     $response = ['success' => true, 'message' => __('Purchase code verified.'), 'data' => $result['data'] ?? []];
                 } else {
                     $response = ['success' => false, 'message' => __('Invalid purchase codes.'), 'data' => []];
@@ -60,44 +65,47 @@ class EnvatoService {
         return $response;
     }
 
-
     // check envato purchase code
-    public function checkEnvatoPurchaseCode($code) {
-        if(!empty($code)) {
-            $response = $this->apiCall('/v3/market/author/sale?code='.$code,[],'GET');
+    public function checkEnvatoPurchaseCode($code)
+    {
+        if (!empty($code)) {
+            $response = $this->apiCall('/v3/market/author/sale?code=' . $code, [], 'GET');
             return $response;
         } else {
-          return ['success' => false, 'message' => __('Code is missing')];
+            return ['success' => false, 'message' => __('Code is missing')];
         }
     }
 
     // get version list
-    public function getProductVersion($code) {
-        if(!empty($code)) {
-            $response = $this->apiCall('/api/get-versions?code='.$code,[],'GET');
+    public function getProductVersion($code)
+    {
+        if (!empty($code)) {
+            $response = $this->apiCall('/api/get-versions?code=' . $code, [], 'GET');
             return $response;
         } else {
-          return ['success' => false, 'message' => __('Code is missing')];
+            return ['success' => false, 'message' => __('Code is missing')];
         }
     }
 
     // download updated code
-    public function downloadUpdate($code,$version) {
-        if(!empty($code)) {
-            $response = $this->apiCall('/api/download-version?code='.$code.'&version='.$version,[],'GET');
+    public function downloadUpdate($code, $version)
+    {
+        if (!empty($code)) {
+            $response = $this->apiCall('/api/download-version?code=' . $code . '&version=' . $version, [], 'GET');
             return $response;
         } else {
-          return ['success' => false, 'message' => __('Code is missing')];
+            return ['success' => false, 'message' => __('Code is missing')];
         }
     }
 
     // check client
-    public function checkExistClient($code) {
-        if(!empty($code)) {
-            $response = $this->apiCall('/api/check-client?code='.$code,[],'GET');
+    public function checkExistClient($code)
+    {
+        if (!empty($code)) {
+            $response = $this->apiCall('/api/check-client?code=' . $code, [], 'GET');
             return $response;
         } else {
-          return ['success' => false, 'message' => __('Code is missing')];
+            return ['success' => false, 'message' => __('Code is missing')];
         }
     }
 }
